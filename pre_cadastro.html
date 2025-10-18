@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Átrio - Pré-Cadastro de Paciente</title>
+    <link rel="stylesheet" href="style.css"> 
+<body class="login-body">
+
+    <div class="login-container">
+        
+        <div class="login-logo-circle"></div>
+
+        <h2>Solicitação de Internação</h2> 
+
+        <form action="pre_cadastro.php" method="POST" class="login-form">
+            
+            <div class="input-group">
+                <input type="text" id="nome_paciente" name="nome_paciente" placeholder="Nome Completo do Paciente" required>
+            </div>
+
+            <div class="input-group">
+                <input type="tel" id="contato_resp" name="contato_resp" placeholder="Contato (Telefone/Whatsapp)" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" id="email_resp" name="email_resp" placeholder="E-mail do Responsável (opcional)">
+            </div>
+
+            <button type="submit" class="login-button">Enviar Solicitação</button>
+        </form>
+
+        <p class="login-back"><a href="index.html">Voltar para o Site</a></p>
+    </div>
+    
+</body>
+</html>
