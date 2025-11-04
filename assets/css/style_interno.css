@@ -1,0 +1,125 @@
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: none;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --prim-color: #4EAAE8;
+    --sec-color: #eef6fc;
+    --ter-color: #a3d0ef;
+    --accents: #d9d9d9;
+    --font-color1: #000000;
+    --font-color2: #ffffff;
+}
+
+#app {
+    display: flex;
+    font-family: Inter;
+}
+
+/* Barra lateral */
+#sidebar {
+    background-color: var(--prim-color);
+    color: var(--font-color2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Seção principal */
+.main {
+    border: 1em var(--prim-color) solid;
+    border-right: 0;
+    padding: 1em 3em;
+    gap: 3em;
+}
+
+.button {
+    border: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#filtro {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 7em;
+}
+
+#filtro > input {
+    background-color: var(--accents);
+    border: none;
+    border-radius: 10px;
+    height: 2rem;
+}
+
+#btn-busca {
+    background-color: var(--bg-color);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+#btn-busca:hover {
+    background-color: var(--accents);
+}
+
+/* Card de paciente */
+.card {
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: var(--sec-color);
+    display: flex;
+    box-shadow: var(--accents) 0 5px 10px;
+    /*Não sei se é melhor aplicar um monte de flex pela página ou 
+    trabalhar com grid... O display fica sujeito à mudanças. */
+}
+
+
+.pac-icon {
+    height: 7rem;
+    border-radius: 12.5px;
+    margin-right: 2em;
+}
+
+/* Seção de calendário/diário. */
+#calend {
+    background-color: var(--sec-color);
+    border: 1em var(--prim-color) solid; /* Ver se tem um jeito mais eficiente de fazer essa borda entre as seções */
+    border-left: 0;
+    border-right: 0;
+}
+
+#calend > input {
+    accent-color: var(--sec-color);
+}
+
+/* Calendário. A estilização ficaria aqui se a gente tivesse um calendário. */
+#calendario-placeholder {
+    width: 15rem;
+}
+
+#btn-add-task {
+    background-color: var(--ter-color);
+    color: var(--font-color2);
+    width: 10rem;
+    height: 2rem;
+    border-radius: 10px;
+    font-size: x-large;
+}
+
+#btn-add-task:hover {
+    background-color: var(--prim-color);
+}
