@@ -28,6 +28,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    height: 100vh;
+    position: fixed;
+}
+
+.logo {
+    height: 5em;
 }
 
 a {
@@ -35,11 +41,15 @@ a {
     color: inherit;
 }
 
+a:hover {
+    background-color: var(--ter-color);
+}
+
 /* Seção principal */
 .main {
     border: 1em var(--prim-color) solid;
     border-right: 0;
-    padding: 1em 3em;
+    padding: 1em 3em 0 9em;
     gap: 3em;
 }
 
@@ -52,28 +62,58 @@ a {
     justify-content: space-between;
 }
 
+.header > div {
+    display: flex;
+    gap: 2em;
+}
+
 #filtro {
     display: flex;
     justify-content: space-between;
-    margin-right: 7em;
+    margin: 1em 7em 1em 0;
 }
 
-#filtro > input {
+.input {
     background-color: var(--accents);
     border: none;
     border-radius: 10px;
     height: 2rem;
 }
 
+form > input {
+    border: none;
+    background-color: inherit;
+}
+
 #btn-busca {
-    background-color: var(--bg-color);
+    background-color: var(--accents);
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
 }
 
+/* Lista de todos os pacientes */
+.btn-geral {
+    color: var(--font-color2);
+    background-color: var(--prim-color);
+    border: none;
+    border-radius: 15px;
+    padding: 0.5em;
+    box-shadow: var(--accents) 0 2px 5px;
+}
+
+.btn-geral:hover {
+    background-color: var(--sec-color);
+    color: var(--font-color1);
+}
+
+#grade-pac {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #btn-busca:hover {
-    background-color: var(--accents);
+    background-color: var(--ter-color);
 }
 
 /* Card de paciente */
@@ -83,23 +123,49 @@ a {
     background-color: var(--sec-color);
     display: flex;
     box-shadow: var(--accents) 0 5px 10px;
+    margin-bottom: 1em;
     /*Não sei se é melhor aplicar um monte de flex pela página ou 
     trabalhar com grid... O display fica sujeito à mudanças. */
 }
 
+.card:hover {
+    background-color: var(--ter-color);
+}
+
+.quadrado {
+    width: 17%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-right: 2em;
+}
 
 .pac-icon {
     height: 7rem;
+    width: 7rem;
     border-radius: 12.5px;
     margin-right: 2em;
 }
 
-/* Seção de calendário/diário. */
+.quad {
+    width: 10em;
+    height: 10em;
+    margin-right: 0;
+}
+
+.espaco {
+    margin: 1rem;
+}
+
+/* Seção de agenda. */
 #calend {
     background-color: var(--sec-color);
     border: 1em var(--prim-color) solid; /* Ver se tem um jeito mais eficiente de fazer essa borda entre as seções */
     border-left: 0;
     border-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 #calend > input {

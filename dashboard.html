@@ -19,15 +19,19 @@
 <body id="app">
 
     <aside id="sidebar">
+        <div id="upper">
         <span>
-            <img src="" alt="Logo do centro de Recuperação Átrio">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/500px-Circle_-_black_simple.svg.png" alt="Logo do centro de Recuperação Átrio" class="logo">
             <h1>Átrio</h1>
         </span>
-        <ul id="upper">
+        <ul>
+            <ul>
             <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Início</a></li>
-            <li><i class="fa-solid fa-person"></i> Ficha de alunos</li> <!-- TODO: Criar página de alunos e as outras. -->
-            <li><i class="fa-solid fa-clipboard-list"></i> Agenda</li>
+            <li><a href="lista-alunos.html"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
+            <li><a href=""><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
         </ul>
+        </ul>
+        </div>
         <ul id="lower">
             <li><i class="fa-solid fa-gear"></i> Configurações</li>
             <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
@@ -37,13 +41,16 @@
     <main class="main">
         <div class="header">
             <h2>Pacientes do dia</h2>
-            <button id="btn-busca" class=" button fa-solid fa-magnifying-glass"></button> <!-- TODO: Adicionar o bendito ícone + funcionalidade do botão -->
+            <form action="">
+                <input type="text" class="input">
+                <button id="btn-busca" class=" button fa-solid fa-magnifying-glass"></button> <!-- TODO: Adicionar o bendito ícone + funcionalidade do botão -->
+            </form>
         </div>
         <nav id="filtro"> <!-- TODO: Add funcionalidade dos filtros -->
             <p>Filtrar:</p>
-            <input type="date" placeholder="Chegada">
-            <input type="number" placeholder="Idade">
-            <select name="ordenacao" id="ordem">
+            <input type="date" placeholder="Chegada" class="input">
+            <input type="number" placeholder="Idade" class="input">
+            <select name="ordenacao" id="ordem" class="input">
                 <option value="">Ordem alfabética</option> <!-- TODO: Adicionar valor -->
                 <option value="">Mais recente</option>
                 <option value="">Mais antigo</option>
@@ -57,6 +64,54 @@
                 class="pac-icon">
                 <div>
                     <h3>Nome Paciente Silva</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p><strong>Idade: XX</strong></p>
+                    <h4>Pendente : Feito</h4>
+                </div>
+            </div>
+            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
+                <img 
+                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
+                alt="Foto do paciente"
+                class="pac-icon">
+                <div>
+                    <h3>Nome Paciente Silva</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p><strong>Idade: XX</strong></p>
+                    <h4>Pendente : Feito</h4>
+                </div>
+            </div>
+            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
+                <img 
+                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
+                alt="Foto do paciente"
+                class="pac-icon">
+                <div>
+                    <h3>Nome Paciente Silva</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p><strong>Idade: XX</strong></p>
+                    <h4>Pendente : Feito</h4>
+                </div>
+            </div>
+            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
+                <img 
+                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
+                alt="Foto do paciente"
+                class="pac-icon">
+                <div>
+                    <h3>Nome Paciente Silva</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p><strong>Idade: XX</strong></p>
+                    <h4>Pendente : Feito</h4>
+                </div>
+            </div>
+            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
+                <img 
+                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
+                alt="Foto do paciente"
+                class="pac-icon">
+                <div>
+                    <h3>Nome Paciente Silva</h3> 
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <p><strong>Idade: XX</strong></p>
                     <h4>Pendente : Feito</h4>
