@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -22,15 +22,15 @@
             <h1>Átrio</h1>
         </span>
         <ul>
-            <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Início</a></li>
-            <li><a href="lista-alunos.html"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
-            <li><a href=""><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</a></li>
-            <li><a href=""><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
+            <li><a href="dashboard.html" class="page-link"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="lista-alunos.html" class="page-link"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
+            <li><a href="cadastro.html" class="page-link"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</a></li>
+            <li><a href="" class="page-link"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
         </ul>
         </div>
         <ul id="lower">
-            <li><i class="fa-solid fa-gear"></i> Configurações</li>
-            <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
+            <li><a href="" class="page-link"></a><i class="fa-solid fa-gear"></i> Configurações</li>
+            <li><a href="index.html" class="page-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
         </ul>
     </aside>
 
@@ -38,9 +38,9 @@
         <div class="header">
             <h2>Todos os pacientes</h2>
             <div>
-            <button class="btn-geral"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</button>
+            <a href="cadastro.html"><button class="btn-geral"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</button></a>
             <form action="">
-                <input type="text" class="input">
+                <input type="text" class="input busca">
                 <button id="btn-busca" class=" button fa-solid fa-magnifying-glass"></button> <!-- TODO: Adicionar o bendito ícone + funcionalidade do botão -->
             </form>
             </div>
