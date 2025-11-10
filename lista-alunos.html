@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Átrio - Administração e Formulários</title>
     <link rel="stylesheet" href="assets/css/style_interno.css">
+    <a href="aluno-exemplo.php?id=123">Ver Ficha</a>
     <!-- Fontes personalizadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +39,7 @@
             <h2>Todos os pacientes</h2>
             <div>
             <a href="cadastro.html"><button class="btn-geral"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</button></a>
-            <form action="">
+                <form action="includes/lista.php" method="get"></form>
                 <input type="text" class="input busca">
                 <button id="btn-busca" class=" button fa-solid fa-magnifying-glass"></button> <!-- TODO: Adicionar o bendito ícone + funcionalidade do botão -->
             </form>
