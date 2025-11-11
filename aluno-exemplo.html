@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Átrio - Fulano da Silva</title>
+    <link rel="stylesheet" href="assets/css/style_interno.css">
+    <!-- Fontes personalizadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/6105ef985f.js" crossorigin="anonymous"></script>
+</head>
+<body id="app">
+
+    <aside id="sidebar">
+        <div id="upper">
+        <span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/500px-Circle_-_black_simple.svg.png" alt="Logo do centro de Recuperação Átrio" class="logo">
+            <h1>Átrio</h1>
+        </span>
+        <ul>
+            <li><a href="dashboard.html" class="page-link"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="lista-alunos.html" class="page-link"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
+            <li><a href="cadastro.html" class="page-link"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</a></li>
+            <li><a href="" class="page-link"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
+        </ul>
+        </div>
+        <ul id="lower">
+            <li><a href="" class="page-link"></a><i class="fa-solid fa-gear"></i> Configurações</li>
+            <li><a href="index.html" class="page-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
+        </ul>
+    </aside>
+
+    <main class="main">
+        <button class="btn-nobg"><a href="lista-alunos.html"><i class="fa-solid fa-chevron-left"></i> Voltar</a></button>
+        <!-- Esse botão de voltar tem que levar pra página que ele tava antes -->
+            <div id="info">
+                <div class="header">
+                    <h2>Fulano da Silva</h2>
+                    <button class="btn-geral"><i class="fa-regular fa-pen-to-square"></i>  Editar</button>
+                </div>
+            <!-- Essa página aqui é a que mais precisa de um banco de dados pra poder funcionar. Ou seja: -->
+            <!-- TODO: Criar um aluno de exemplo no banco de dados e integrar a página com tal. -->
+            <!-- Os valores de exemplo são todos direto do HTML. -->
+            <section class="info-aluno">
+                <form action="">
+                    <label for="nome" class="form-label">Nome Completo</label>
+                    <input type="text" class="form-entry" readonly value="Fulano da Silva">
+                    <label for="data-nasc" class="form-label">Data de nascimento</label>
+                    <input type="date" class="form-entry" value="06-07-1985" readonly> <!-- Não sei como colocar valor em formato de data kk-->
+                    <label for="CPF" class="form-label">CPF</label>
+                    <input type="text" class="form-entry" readonly value="523.407.760-82">
+                    <label for="enredeco" class="form-label">Endereço</label>
+                    <input type="text" class="form-entry" readonly value="Rua Teorema de Pitágoras, 314 - Belém - São Paulo, SP">
+                    <label for="data-entrada" class="form-label">Data de entrada na casa</label>
+                    <input type="date" class="form-entry" readonly value="14-05-2007">
+                    <label for="mae" class="form-label">Nome da mãe</label>
+                    <input type="text" class="form-entry" readonly value="Ciclana Oliveira da Silva">
+                    <label for="pai" class="form-label">Nome do pai</label>
+                    <input type="text" class="form-entry" readonly value="Beltrano da Silva">
+                </form>
+                <form action="">
+                    <img 
+                    src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
+                    alt="Foto do paciente"
+                    class="pac-icon">
+                    <label for="acomp-psi" class="form-label">Possui histórico de acompanhamento psiquiátrico?</label>
+                    <input type="radio" name="acomp-psi" class="form-radio" disabled checked>
+                    <label for="">Sim</label>
+                    <input type="radio" name="acomp-psi" class="form-radio" disabled>
+                    <label for="">Não</label>
+                    <label for="medicamento" class="form-label">Toma medicamento?</label>
+                    <input type="radio" name="medicamento" class="form-radio" disabled checked>
+                    <label for="">Sim</label>
+                    <input type="radio" name="medicamento" class="form-radio" disabled>
+                    <label for="">Não</label>
+                    <label for="medicamento-qual" class="form-label">Especifique</label>
+                    <input type="text" class="form-entry" readonly value="Risperidona">
+                    <label for="entorpecente" class="form-label">Quais entorpecentes usava?</label>
+                    <input type="text" class="form-entry" readonly value="Ecstasy/MDMA">
+                </section>
+                <label for="obs" class="form-label">Observação profissional</label>
+                <textarea name="obs" id="obs" class="form-txt" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                <button class="btn-geral">Acessar relatórios passados <i class="fa-solid fa-bars"></i></button> <br>
+                <button class="btn-geral" style="margin-top: 1em;">Novo <i class="fa-solid fa-ellipsis"></i></button>
+        </div>
+    </main>
+</body>
+</html>
