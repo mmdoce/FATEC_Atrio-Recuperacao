@@ -92,48 +92,11 @@ a {
     background-color: var(--accents);
 }
 
-#btn-busca {
-    background-color: var(--accents);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-}
-
-.btn-nobg{
-    background-color: inherit;
-    border: none;
-}
-
-.btn-nobg > a {
-    text-decoration: none;
-    color: var(--prim-color);
-    font-size: medium;
-
-}
-
 /* Lista de todos os pacientes */
-.btn-geral {
-    color: var(--font-color2);
-    background-color: var(--prim-color);
-    font-family: inherit;
-    border: none;
-    border-radius: 15px;
-    padding: 0.5em;
-    box-shadow: var(--accents) 0 2px 5px;
-}
-
-.btn-geral:hover {
-    background-color: var(--sec-color);
-    color: var(--font-color1);
-}
 
 #grade-pac {
     display: flex;
     flex-wrap: wrap;
-}
-
-#btn-busca:hover {
-    background-color: var(--ter-color);
 }
 
 /* Card de paciente */
@@ -251,10 +214,104 @@ form > .pac-icon {
     height: 15em;
 }
 
+/* Estilização do PASS + Laboterapia */
+.pass {
+    width: 35em;
+    max-width: 35em;
+    height: 5em;
+    min-height: 3.5em;
+}
+
+.profile {
+    width: 50%;
+    border-top: 1em var(--prim-color) solid;
+    border-bottom: 1em var(--prim-color) solid;
+    padding: 4em;
+}
+
+.profile-info {
+    display: flex;
+    text-align: right;
+}
+
+.profile-info > div {
+    padding-right: 2em;
+}
+
+.hist-sessao {
+    margin: 2em;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px var(--accents) solid;
+    box-shadow: var(--accents) 0 5px 10px;
+}
+
+.header-hist {
+    background-color: var(--ter-color);
+    border-radius: 15px 15px 0 0;
+    padding: 5px;
+}
+
+.sessao {
+    border: var(--accents) 1px solid;
+    background-color: var(--sec-color);
+    margin-bottom: 0.2em;
+}
+
+.sessao:hover {
+    background-color: var(--ter-color);
+    border: var(--font-color1) 1px solid;
+}
+
+.last {
+    border-radius: 0 0 15px 15px;
+}
 
 /* Calendário. A estilização ficaria aqui se a gente tivesse um calendário. */
 #calendario-placeholder {
     width: 15rem;
+}
+
+/* Botões */
+
+.btn-geral {
+    color: var(--font-color2);
+    background-color: var(--prim-color);
+    font-family: inherit;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5em;
+    box-shadow: var(--accents) 0 2px 5px;
+}
+
+.btn-geral:hover {
+    background-color: var(--sec-color);
+    color: var(--font-color1);
+}
+
+.btn-alt {
+    color: var(--font-color1);
+    background-color: var(--sec-color);
+    border: 1px solid var(--ter-color);
+    border-radius: 10px;
+    font-family: inherit;
+    padding: 0.5em;
+    box-shadow: var(--accents) 0 2px 5px;
+}
+
+.btn-alt:hover {
+    background-color: var(--ter-color);
+}
+
+.btn-nobg{
+    background-color: inherit;
+    border: none;
+}
+
+.btn-nobg > a {
+    text-decoration: none;
+    color: var(--prim-color);
+    font-size: medium;
 }
 
 #btn-add-task {
@@ -268,4 +325,16 @@ form > .pac-icon {
 
 #btn-add-task:hover {
     background-color: var(--prim-color);
+}
+
+
+#btn-busca:hover {
+    background-color: var(--ter-color);
+}
+
+#btn-busca {
+    background-color: var(--accents);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
 }
