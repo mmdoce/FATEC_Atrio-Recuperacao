@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Átrio - Agenda</title>
+  <link rel="stylesheet" href="assets/css/style_interno.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6105ef985f.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    main.main {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .calendar-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-header h2 {
+      font-size: 2rem;
+      text-transform: capitalize;
+    }
+
+    .calendar-header div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .calendar-header button {
+      background: #2e2e2e;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .calendar-header button:hover {
+      background: #444;
+    }
+
+    .calendar-header input {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .calendar {
+      width: 100%;
+    }
+
+    #weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-weight: 600;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+
+    .cell {
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      min-height: 120px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      transition: 0.2s;
+    }
+
+    .cell:hover {
+      background-color: #f1f1f1;
+    }
+
+    .cell:nth-child(7n) { border-right: none; }
+
+    .daynum {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .entries {
+      flex: 1;
+      outline: none;
+      font-size: 0.9rem;
+    }
+
+    .today {
+      background: rgba(0, 0, 0, 0.05);
+      font-weight: 600;
+    }
+
+    .dim {
+      color: #aaa;
+    }
+
+    @media (max-width: 700px) {
+      #weekdays, #grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body id="app">
+  <aside id="sidebar">
+    <div id="upper">
+      <span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/500px-Circle_-_black_simple.svg.png" alt="Logo do centro de Recuperação Átrio" class="logo">
+        <h1>Átrio</h1>
+      </span>
+      <ul>
+        <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Início</a></li>
+        <li><a href="lista-alunos.html"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
+        <li><a href=""><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</a></li>
+        <li><a href="calendario.html" class="active"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
+      </ul>
+    </div>
+    <ul id="lower">
+      <li><i class="fa-solid fa-gear"></i> Configurações</li>
+      <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prev">◀</button>
+        <h2 id="monthTitle">Mês Atual</h2>
+        <div>
+          <input type="text" id="dateSearch" placeholder="dd/mm/aaaa">
+          <button id="todayBtn">Hoje</button>
+          <button id="next">▶</button>
+        </div>
+      </div>
+
+      <div class="calendar">
+        <div id="weekdays"></div>
+        <div id="grid"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const weekdaysEl = document.getElementById('weekdays');
+    const monthTitle = document.getElementById('monthTitle');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const todayBtn = document.getElementById('todayBtn');
+    const dateSearch = document.getElementById('dateSearch');
+
+    let today = new Date();
+    let viewYear = today.getFullYear();
+    let viewMonth = today.getMonth();
+
+    const weekdays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+
+    function formatDateYMD(d) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
+
+    function saveEntry(dateStr, html) {
+      localStorage.setItem('planner-' + dateStr, html);
+    }
+
+    function loadEntry(dateStr) {
+      return localStorage.getItem('planner-' + dateStr) || '';
+    }
+
+    function buildWeekdays() {
+      weekdaysEl.innerHTML = '';
+      weekdays.forEach(w => {
+        const el = document.createElement('div');
+        el.textContent = w;
+        weekdaysEl.appendChild(el);
+      });
+    }
+
+    function renderCalendar(year, month) {
+      grid.innerHTML = '';
+      const first = new Date(year, month, 1);
+      const startDayIndex = first.getDay();
+      const startDate = new Date(year, month, 1 - startDayIndex);
+      const total = 42;
+
+      const monthName = first.toLocaleString('pt-BR', { month: 'long' });
+      monthTitle.textContent = `${monthName}, ${year}`;
+
+      for (let i = 0; i < total; i++) {
+        const d = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + i);
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        if (d.getMonth() !== month) cell.classList.add('dim');
+        if (d.toDateString() === new Date().toDateString()) cell.classList.add('today');
+
+        const dayHeader = document.createElement('div');
+        dayHeader.className = 'daynum';
+        dayHeader.textContent = d.getDate();
+        cell.appendChild(dayHeader);
+
+        const entries = document.createElement('div');
+        entries.className = 'entries';
+        entries.setAttribute('data-date', formatDateYMD(d));
+        entries.contentEditable = true;
+        entries.spellcheck = false;
+        entries.innerHTML = loadEntry(formatDateYMD(d)) || '';
+        cell.appendChild(entries);
+
+        let saveTimer = null;
+        entries.addEventListener('input', () => {
+          clearTimeout(saveTimer);
+          saveTimer = setTimeout(() => {
+            saveEntry(entries.getAttribute('data-date'), entries.innerHTML);
+          }, 400);
+        });
+
+        entries.addEventListener('dblclick', () => {
+          const text = prompt('Adicionar evento rápido:');
+          if (text && text.trim()) {
+            const ev = document.createElement('div');
+            ev.textContent = text.trim();
+            entries.prepend(ev);
+            saveEntry(entries.getAttribute('data-date'), entries.innerHTML);
+          }
+        });
+
+        grid.appendChild(cell);
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      viewMonth--;
+      if (viewMonth < 0) {
+        viewMonth = 11;
+        viewYear--;
+      }
+      renderCalendar(viewYear, viewMonth);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      viewMonth++;
+      if (viewMonth > 11) {
+        viewMonth = 0;
+        viewYear++;
+      }
+      renderCalendar(viewYear, viewMonth);
+    });
+
+    todayBtn.addEventListener('click', () => {
+      const d = new Date();
+      viewYear = d.getFullYear();
+      viewMonth = d.getMonth();
+      renderCalendar(viewYear, viewMonth);
+    });
+
+    // Busca de data no formato brasileiro (dd/mm/aaaa)
+    dateSearch.addEventListener('change', () => {
+      const input = dateSearch.value.trim();
+      const [day, month, year] = input.split("/").map(Number);
+      if (!day || !month || !year) return;
+      const targetDate = new Date(year, month - 1, day);
+      if (isNaN(targetDate)) return;
+      viewYear = targetDate.getFullYear();
+      viewMonth = targetDate.getMonth();
+      renderCalendar(viewYear, viewMonth);
+    });
+
+    buildWeekdays();
+    renderCalendar(viewYear, viewMonth);
+  </script>
+</body>
+</html>
