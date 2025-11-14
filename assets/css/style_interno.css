@@ -27,6 +27,28 @@ a {
     color: inherit;
 }
 
+/* Tela de login */
+#login {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter;
+    background-color: var(--accents);
+}
+
+.login {
+    height: fit-content;
+    text-align: center;
+    border: var(--font-color1) 1px solid;
+    background-color: var(--bg-color);
+    padding: 3em;
+}
+
+.input-login {
+    max-width: 30em;
+}
+
 /* Barra lateral */
 /* se alguma boa alma quiser e puder passar essa barra pra js, afim de otimizar o site... */
 #sidebar {
@@ -273,6 +295,11 @@ form > .pac-icon {
 }
 
 /* Botões */
+
+.btn-login {
+    width: 15em;
+    font-size: medium;
+}
 
 .btn-geral {
     color: var(--font-color2);
