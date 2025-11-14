@@ -9,131 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6105ef985f.js" crossorigin="anonymous"></script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f7f7;
-    }
 
+  <style>
     main.main {
       padding: 20px;
       flex: 1;
     }
-
-    .calendar-container {
-      max-width: 1200px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 30px;
-    }
-
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .calendar-header h2 {
-      font-size: 2rem;
-      text-transform: capitalize;
-    }
-
-    .calendar-header div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .calendar-header button {
-      background: #2e2e2e;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .calendar-header button:hover {
-      background: #444;
-    }
-
-    .calendar-header input {
-      padding: 6px 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .calendar {
-      width: 100%;
-    }
-
-    #weekdays {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
-      font-weight: 600;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 6px;
-      margin-bottom: 6px;
-    }
-
-    #grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      border: 1px solid #ccc;
-      border-top: none;
-    }
-
-    .cell {
-      border-right: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      min-height: 120px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      background-color: #fff;
-      transition: 0.2s;
-    }
-
-    .cell:hover {
-      background-color: #f1f1f1;
-    }
-
-    .cell:nth-child(7n) { border-right: none; }
-
-    .daynum {
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .entries {
-      flex: 1;
-      outline: none;
-      font-size: 0.9rem;
-    }
-
-    .today {
-      background: rgba(0, 0, 0, 0.05);
-      font-weight: 600;
-    }
-
-    .dim {
-      color: #aaa;
-    }
-
-    @media (max-width: 700px) {
-      #weekdays, #grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
   </style>
+  
 </head>
 <body id="app">
   <aside id="sidebar">
@@ -143,14 +26,12 @@
         <h1>Átrio</h1>
       </span>
       <ul>
-        <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Início</a></li>
-        <li><a href="lista-alunos.html"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
-        <li><a href=""><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</a></li>
-        <li><a href="calendario.html" class="active"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
+        <li><a href="dashboard.html" class="page-link"><i class="fa-solid fa-house"></i> Início</a></li>
+        <li><a href="lista-alunos.html" class="page-link"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
+        <li><a href="agenda.html" class="page-link"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
       </ul>
     </div>
     <ul id="lower">
-      <li><i class="fa-solid fa-gear"></i> Configurações</li>
       <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li>
     </ul>
   </aside>
