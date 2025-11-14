@@ -14,6 +14,7 @@
     --accents: #d9d9d9;
     --font-color1: #000000;
     --font-color2: #ffffff;
+    --form-bg: #ededed
 }
 
 #app {
@@ -21,7 +22,35 @@
     font-family: Inter;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Tela de login */
+#login {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter;
+    background-color: var(--accents);
+}
+
+.login {
+    height: fit-content;
+    text-align: center;
+    border: var(--font-color1) 1px solid;
+    background-color: var(--bg-color);
+    padding: 3em;
+}
+
+.input-login {
+    max-width: 30em;
+}
+
 /* Barra lateral */
+/* se alguma boa alma quiser e puder passar essa barra pra js, afim de otimizar o site... */
 #sidebar {
     background-color: var(--prim-color);
     color: var(--font-color2);
@@ -36,12 +65,12 @@
     height: 5em;
 }
 
-a {
+.page-link {
     text-decoration: none;
     color: inherit;
 }
 
-a:hover {
+.page-link:hover {
     background-color: var(--ter-color);
 }
 
@@ -80,40 +109,16 @@ a:hover {
     height: 2rem;
 }
 
-form > input {
+.busca {
     border: none;
-    background-color: inherit;
-}
-
-#btn-busca {
     background-color: var(--accents);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
 }
 
 /* Lista de todos os pacientes */
-.btn-geral {
-    color: var(--font-color2);
-    background-color: var(--prim-color);
-    border: none;
-    border-radius: 15px;
-    padding: 0.5em;
-    box-shadow: var(--accents) 0 2px 5px;
-}
-
-.btn-geral:hover {
-    background-color: var(--sec-color);
-    color: var(--font-color1);
-}
 
 #grade-pac {
     display: flex;
     flex-wrap: wrap;
-}
-
-#btn-busca:hover {
-    background-color: var(--ter-color);
 }
 
 /* Card de paciente */
@@ -172,9 +177,168 @@ form > input {
     accent-color: var(--sec-color);
 }
 
+/* Cadastro de paciente e formulários gerais */
+#content {
+    padding: 1em;
+}
+
+.form-label {
+    display: block;
+    margin-top: 1em;
+}
+
+.form-entry {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--form-bg);
+    width: 30rem;
+    height: 2.5em;
+    margin-bottom: 0.5em;
+    padding: 1em;
+    font-family: inherit;
+}
+
+.form-entry:focus{
+    border: var(--prim-color) 1px solid;
+    background-color: var(--accents);
+}
+
+.form-txt {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--form-bg);
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1em;
+    font-family: inherit;
+}
+
+.form-txt:focus {
+    border: var(--prim-color) 1px solid;
+    background-color: var(--accents);  
+}
+
+/* Página individual de aluno */
+#info {
+    padding: 1em;
+    width: 85vw;
+}
+
+.info-aluno {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+form > .pac-icon {
+    width: 15em;
+    height: 15em;
+}
+
+/* Estilização do PASS + Laboterapia */
+.pass {
+    width: 35em;
+    max-width: 35em;
+    height: 5em;
+    min-height: 3.5em;
+}
+
+.profile {
+    width: 50%;
+    border-top: 1em var(--prim-color) solid;
+    border-bottom: 1em var(--prim-color) solid;
+    padding: 4em;
+}
+
+.profile-info {
+    display: flex;
+    text-align: right;
+}
+
+.profile-info > div {
+    padding-right: 2em;
+}
+
+.hist-sessao {
+    margin: 2em;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px var(--accents) solid;
+    box-shadow: var(--accents) 0 5px 10px;
+}
+
+.header-hist {
+    background-color: var(--ter-color);
+    border-radius: 15px 15px 0 0;
+    padding: 5px;
+}
+
+.sessao {
+    border: var(--accents) 1px solid;
+    background-color: var(--sec-color);
+    margin-bottom: 0.2em;
+}
+
+.sessao:hover {
+    background-color: var(--ter-color);
+    border: var(--font-color1) 1px solid;
+}
+
+.last {
+    border-radius: 0 0 15px 15px;
+}
+
 /* Calendário. A estilização ficaria aqui se a gente tivesse um calendário. */
 #calendario-placeholder {
     width: 15rem;
+}
+
+/* Botões */
+
+.btn-login {
+    width: 15em;
+    font-size: medium;
+}
+
+.btn-geral {
+    color: var(--font-color2);
+    background-color: var(--prim-color);
+    font-family: inherit;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5em;
+    box-shadow: var(--accents) 0 2px 5px;
+}
+
+.btn-geral:hover {
+    background-color: var(--sec-color);
+    color: var(--font-color1);
+}
+
+.btn-alt {
+    color: var(--font-color1);
+    background-color: var(--sec-color);
+    border: 1px solid var(--ter-color);
+    border-radius: 10px;
+    font-family: inherit;
+    padding: 0.5em;
+    box-shadow: var(--accents) 0 2px 5px;
+}
+
+.btn-alt:hover {
+    background-color: var(--ter-color);
+}
+
+.btn-nobg{
+    background-color: inherit;
+    border: none;
+}
+
+.btn-nobg > a {
+    text-decoration: none;
+    color: var(--prim-color);
+    font-size: medium;
 }
 
 #btn-add-task {
@@ -188,4 +352,16 @@ form > input {
 
 #btn-add-task:hover {
     background-color: var(--prim-color);
+}
+
+
+#btn-busca:hover {
+    background-color: var(--ter-color);
+}
+
+#btn-busca {
+    background-color: var(--accents);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
 }

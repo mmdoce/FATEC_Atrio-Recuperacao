@@ -26,15 +26,14 @@
         </span>
         <ul>
             <ul>
-            <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Início</a></li>
-            <li><a href="lista-alunos.html"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
-            <li><a href=""><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
+            <li><a href="dashboard.html" class="page-link"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="lista-alunos.html" class="page-link"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
+            <li><a href="" class="page-link"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
         </ul>
         </ul>
         </div>
         <ul id="lower">
-            <li><i class="fa-solid fa-gear"></i> Configurações</li>
-            <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
+            <li><a href="index.html" class="page-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
         </ul>
     </aside>
 
@@ -42,7 +41,7 @@
         <div class="header">
             <h2>Pacientes do dia</h2>
             <form action="">
-                <input type="text" class="input">
+                <input type="text" class="input busca">
                 <button id="btn-busca" class=" button fa-solid fa-magnifying-glass"></button> <!-- TODO: Adicionar o bendito ícone + funcionalidade do botão -->
             </form>
         </div>
@@ -57,18 +56,20 @@
             </select>
         </nav>
         <section class="lista-pac" id="pac-dia">
+            <a href="aluno-exemplo.html">
             <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
                 <img 
                 src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
                 alt="Foto do paciente"
                 class="pac-icon">
                 <div>
-                    <h3>Nome Paciente Silva</h3>
+                    <h3>Fulano da Silva</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <p><strong>Idade: XX</strong></p>
                     <h4>Pendente : Feito</h4>
                 </div>
             </div>
+            </a>
             <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
                 <img 
                 src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
