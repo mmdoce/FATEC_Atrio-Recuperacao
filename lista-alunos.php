@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Átrio - Administração e Formulários</title>
     <link rel="stylesheet" href="assets/css/style_interno.css">
-    <a href="aluno-exemplo.php?id=123">Ver Ficha</a>
+     <link rel="stylesheet" href="slide-bar/ESTILO.css">
     <!-- Fontes personalizadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,27 +16,12 @@
 </head>
 <body id="app">
 
-    <aside id="sidebar">
-        <div id="upper">
-        <span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/500px-Circle_-_black_simple.svg.png" alt="Logo do centro de Recuperação Átrio" class="logo">
-            <h1>Átrio</h1>
-        </span>
-        <ul>
-            <li><a href="dashboard.html" class="page-link"><i class="fa-solid fa-house"></i> Início</a></li>
-            <li><a href="lista-alunos.html" class="page-link"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
-            <li><a href="cadastro.html" class="page-link"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</a></li>
-            <li><a href="agenda.html" class="page-link"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
-        </ul>
-        </div>
-        <ul id="lower">
-            <li><a href="index.html" class="page-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
-        </ul>
-    </aside>
-
+     <?php include 'slide-bar/sidebar.html'; ?>
+        
     <main class="main">
         <div class="header">
             <h2>Todos os pacientes</h2>
+            <a href="aluno-exemplo.php?id=123">Ver Ficha</a>
             <div>
             <a href="cadastro.html"><button class="btn-geral"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</button></a>
                 <form action="includes/lista.php" method="get"></form>
@@ -146,5 +131,8 @@
             </div>
         </section>
     </main>
+
+    <script src="slide-bar/script.js"></script>
+
 </body>
 </html>

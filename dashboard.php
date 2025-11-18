@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Átrio - Administração e Formulários</title>
     <link rel="stylesheet" href="assets/css/style_interno.css">
+    <link rel="stylesheet" href="slide-bar/ESTILO.css">
+
     <!-- Fontes personalizadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,24 +20,11 @@
 </head>
 <body id="app">
         <form action="includes/dashboard.php" method="post"></form>
-    <aside id="sidebar">
-        <div id="upper">
-        <span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/500px-Circle_-_black_simple.svg.png" alt="Logo do centro de Recuperação Átrio" class="logo">
-            <h1>Átrio</h1>
-        </span>
-        <ul>
-            <ul>
-            <li><a href="dashboard.html" class="page-link"><i class="fa-solid fa-house"></i> Início</a></li>
-            <li><a href="lista-alunos.html" class="page-link"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
-            <li><a href="agenda.html" class="page-link"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
-        </ul>
-        </ul>
-        </div>
-        <ul id="lower">
-            <li><a href="index.html" class="page-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li> <!-- TODO: Adicionar funcionalidade de login. -->
-        </ul>
-    </aside>
+
+       
+     <?php include 'slide-bar/sidebar.html'; ?>
+     
+<div class="page-content">
 
     <main class="main">
         <div class="header">
@@ -126,10 +115,6 @@
                 <p>RA: 515.870.232.187</p>
             </div>
             <!-- TODO: Adicionar um calendário e fazer dele funcional. -->
-            <img 
-            src="https://icalendario.br.com/m/imprimir/2026/mensal/janeiro/calendario-janeiro-2026_5540_3.png" 
-            alt="imagem de um calendário"
-            id="calendario-placeholder">
             <div id="tasks">
                 <h3><i class="fa-solid fa-list"></i> Pendências</h3>
                 <form action="">
@@ -143,6 +128,10 @@
                 </form>
             </div>
         </section>
-    
+
+</div>
+
+     <script src="slide-bar/script.js"></script>
+
 </body>
 </html>

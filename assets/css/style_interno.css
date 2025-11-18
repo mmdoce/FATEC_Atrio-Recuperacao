@@ -115,6 +115,16 @@ a {
     background-color: var(--accents);
 }
 
+.page-content {
+    margin-left: 82px;
+    padding: 20px;
+}
+
+#sidebar.open-sidebar ~ .page-content {
+    margin-left: 15%;
+}
+
+
 /* Lista de todos os pacientes */
 
 #grade-pac {

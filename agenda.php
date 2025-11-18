@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Átrio - Agenda</title>
   <link rel="stylesheet" href="assets/css/style_interno.css">
+   <link rel="stylesheet" href="slide-bar/ESTILO.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,22 +23,8 @@
   
 </head>
 <body id="app">
-  <aside id="sidebar">
-    <div id="upper">
-      <span>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/500px-Circle_-_black_simple.svg.png" alt="Logo do centro de Recuperação Átrio" class="logo">
-        <h1>Átrio</h1>
-      </span>
-      <ul>
-        <li><a href="dashboard.html" class="page-link"><i class="fa-solid fa-house"></i> Início</a></li>
-        <li><a href="lista-alunos.html" class="page-link"><i class="fa-solid fa-person"></i> Ficha de alunos</a></li>
-        <li><a href="agenda.html" class="page-link"><i class="fa-solid fa-clipboard-list"></i> Agenda</a></li>
-      </ul>
-    </div>
-    <ul id="lower">
-      <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li>
-    </ul>
-  </aside>
+
+      <?php include 'slide-bar/sidebar.html'; ?>
 
   <main class="main">
     <div class="calendar-container">
@@ -188,5 +176,8 @@
     buildWeekdays();
     renderCalendar(viewYear, viewMonth);
   </script>
+
+     <script src="slide-bar/script.js"></script>
+
 </body>
 </html>
