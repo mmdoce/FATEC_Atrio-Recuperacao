@@ -21,7 +21,7 @@
     <main class="main">
         <div class="header">
             <h2>Todos os pacientes</h2>
-            <a href="aluno-exemplo.php?id=123">Ver Ficha</a>
+        
             <div>
             <a href="cadastro.html"><button class="btn-geral"><i class="fa-solid fa-user-plus"></i> Cadastrar aluno</button></a>
                 <form action="includes/lista.php" method="get"></form>
@@ -41,29 +41,15 @@
             </select>
         </nav>
         <section id="grade-pac">
-            <div class="card quadrado"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização. -->
-                <a href="aluno-exemplo.html">
-                                        <!-- Além disso, os cards deveriam ter um limite de caracteres a serem exbidos por fora, 
-                                        a partir disso sendo interrompidos por reticêncicas (...) -->
-                <img 
-                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
-                alt="Foto do paciente"
-                class="pac-icon quad">
-                <div>
-                    <h3 class="espaco">Fulano da Silva</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua... </p>
-                    <p><strong>Idade: XX</strong></p>
-                    <h4 class="espaco">Pendente : Feito</h4>
-                </div>
-            </a>
+           
+
+
+
+
+
         </section>
     </main>
-<<<<<<< HEAD:lista-alunos.php
 
     <script src="slide-bar/script.js"></script>
-
-=======
-    <script src="scripts/pacientes.js"></script>
->>>>>>> b1c3a1814bf17d0c39d817381643fef7c4244a84:lista-alunos.html
 </body>
 </html>
