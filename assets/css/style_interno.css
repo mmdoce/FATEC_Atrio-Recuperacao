@@ -241,9 +241,8 @@ a {
 
 .info-aluno {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
+    flex-flow: column wrap;
+    max-height: 100vh;
 }
 
 form > .pac-icon {
