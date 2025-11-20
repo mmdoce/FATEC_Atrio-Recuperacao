@@ -44,70 +44,39 @@
                 <option value="">Mais antigo</option>
             </select>
         </nav>
-        <section class="lista-pac" id="pac-dia">
-            <a href="aluno-exemplo.html">
-            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
-                <img 
-                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
+
+        <?php 
+$pacientes = include 'includes/dashboard.php';
+?>
+
+<section class="lista-pac" id="pac-dia">
+
+<?php if (empty($pacientes)) { ?>
+    <p>Nenhum paciente hoje 😴</p>
+<?php } else { ?>
+
+    <?php foreach ($pacientes as $p) { ?>
+    <a href="aluno-exemplo.html">
+        <div class="card paciente">
+            <img 
+                src="<?= $p['foto'] ?>" 
                 alt="Foto do paciente"
                 class="pac-icon">
-                <div>
-                    <h3>Fulano da Silva</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p><strong>Idade: XX</strong></p>
-                    <h4>Pendente : Feito</h4>
-                </div>
+            <div>
+                <h3><?= $p['nome'] ?></h3>
+                <p><?= $p['descricao'] ?></p>
+                <p><strong>Idade: <?= $p['idade'] ?></strong></p>
+                <h4>Pendente : <?= $p['status_relatorio'] ?></h4>
             </div>
-            </a>
-            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
-                <img 
-                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
-                alt="Foto do paciente"
-                class="pac-icon">
-                <div>
-                    <h3>Nome Paciente Silva</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p><strong>Idade: XX</strong></p>
-                    <h4>Pendente : Feito</h4>
-                </div>
-            </div>
-            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
-                <img 
-                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
-                alt="Foto do paciente"
-                class="pac-icon">
-                <div>
-                    <h3>Nome Paciente Silva</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p><strong>Idade: XX</strong></p>
-                    <h4>Pendente : Feito</h4>
-                </div>
-            </div>
-            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
-                <img 
-                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
-                alt="Foto do paciente"
-                class="pac-icon">
-                <div>
-                    <h3>Nome Paciente Silva</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p><strong>Idade: XX</strong></p>
-                    <h4>Pendente : Feito</h4>
-                </div>
-            </div>
-            <div class="card paciente"> <!-- TODO: Passar os cartões de paciente pra js e json, para automatização e organização -->
-                <img 
-                src="https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg" 
-                alt="Foto do paciente"
-                class="pac-icon">
-                <div>
-                    <h3>Nome Paciente Silva</h3> 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p><strong>Idade: XX</strong></p>
-                    <h4>Pendente : Feito</h4>
-                </div>
-            </div>
-        </section>
+        </div>
+    </a>
+    <?php } ?>
+
+<?php } ?>
+
+</section>
+
+       
     </main>
     <section id="calend">
             <div>

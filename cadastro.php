@@ -26,41 +26,51 @@
         <div class="header">
             <h2>Cadastro de paciente</h2>
         </div>
-          <form action="includes/aluno-exemplo.php" method="post"></form>
-          <form action="includes/atualiza-aluno.php" method="post"></form>
-          <form action="includes/cadastro-aluno.php" method="post"></form>
-            <label for="nome" class="form-label">Nome Completo</label>
-            <input type="text" class="form-entry">
-            <label for="data-nasc" class="form-label">Data de nascimento</label>
-            <input type="date" class="form-entry">
-            <label for="CPF" class="form-label">CPF</label>
-            <input type="text" class="form-entry">
-            <label for="enredeco" class="form-label">Endereço</label>
-            <input type="text" class="form-entry">
-            <label for="data-entrada" class="form-label">Data de entrada na casa</label>
-            <input type="date" class="form-entry">
-            <label for="acomp-psi" class="form-label">Possui histórico de acompanhamento psiquiátrico?</label>
-            <input type="radio" name="acomp-psi" class="form-radio">
-            <label for="">Sim</label>
-            <input type="radio" name="acomp-psi" class="form-radio">
-            <label for="">Não</label>
-            <label for="medicamento" class="form-label">Toma medicamento?</label>
-            <input type="radio" name="medicamento" class="form-radio">
-            <label for="">Sim</label>
-            <input type="radio" name="medicamento" class="form-radio">
-            <label for="">Não</label>
-            <label for="medicamento-qual" class="form-label">Especifique</label>
-            <input type="text" class="form-entry">
-            <label for="entorpecente" class="form-label">Quais entorpecentes usava?</label>
-            <input type="text" class="form-entry">
-            <label for="mae" class="form-label">Nome da mãe</label>
-            <input type="text" class="form-entry">
-            <label for="pai" class="form-label">Nome do pai</label>
-            <input type="text" class="form-entry">
-            <label for="obs" class="form-label">Observação profissional</label>
-            <textarea name="obs" id="obs" class="form-txt"></textarea>
-            <button class="btn-geral">Cadastrar</button>
-        </form>
+        
+        <form action="includes/cadastro-aluno.php" method="post">
+
+    <label for="nome" class="form-label">Nome Completo</label>
+    <input type="text" name="nome" class="form-entry">
+
+    <label class="form-label">Data de nascimento</label>
+    <input type="date" name="data_nasc" class="form-entry">
+
+    <label class="form-label">CPF</label>
+    <input type="text" name="cpf" class="form-entry">
+
+    <label class="form-label">Endereço</label>
+    <input type="text" name="endereco" class="form-entry">
+
+    <label class="form-label">Data de entrada na casa</label>
+    <input type="date" name="data_entrada" class="form-entry">
+
+    <label class="form-label">Possui acompanhamento psiquiátrico?</label>
+    <input type="radio" name="acomp_psi" value="sim"> Sim
+    <input type="radio" name="acomp_psi" value="nao"> Não
+
+    <label class="form-label">Toma medicamento?</label>
+    <input type="radio" name="medicamento" value="sim"> Sim
+    <input type="radio" name="medicamento" value="nao"> Não
+
+    <label class="form-label">Especifique</label>
+    <input type="text" name="medicamento_qual" class="form-entry">
+
+    <label class="form-label">Quais entorpecentes usava?</label>
+    <input type="text" name="entorpecente" class="form-entry">
+
+    <label class="form-label">Nome da mãe</label>
+    <input type="text" name="mae" class="form-entry">
+
+    <label class="form-label">Nome do pai</label>
+    <input type="text" name="pai" class="form-entry">
+
+    <label class="form-label">Observação profissional</label>
+    <textarea name="obs" class="form-txt"></textarea>
+
+    <button class="btn-geral" type="submit">Cadastrar</button>
+
+</form>
+
     
         </div>
     </main>

@@ -1,4 +1,6 @@
 <?php
+session_start(); // <-- SEMPRE tem que vir no topo de qualquer página que use sessão
+
 include 'conexao.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,11 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($senha_digitada, $senha_hash)) {
             
+            // GRAVA INFOS NA SESSÃO
             $_SESSION['usuario_id'] = $usuario['usuario_id'];
             $_SESSION['nome'] = $usuario['nome'];
-            $_SESSION['perfil'] = $usuario['perfil']; 
+            $_SESSION['perfil'] = $usuario['perfil'];
 
-
+            // REDIRECIONA PRO DASH
             header("Location: dashboard.php");
             exit();
         } else {
@@ -33,7 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: login.html?erro=usuario");
         exit();
     }
+
     $stmt->close();
 }
+
 $conn->close();
 ?>

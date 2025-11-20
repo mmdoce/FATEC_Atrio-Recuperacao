@@ -3,7 +3,7 @@ include 'conexao.php';
 
 if (!isset($_SESSION['usuario_id'])) {
 
-    header("Location: login.html?erro=nao_logado");
+    header("Location: index.html?erro=nao_logado");
     exit();
 }
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
     if (empty($paciente_id) || empty($data_hora_atendimento) || empty($tipo_atendimento)) {
-        header("Location: agenda.html?erro=campos_vazios");
+        header("Location: agenda.php?erro=campos_vazios");
         exit();
     }
     
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("iissa", $paciente_id, $usuario_id, $data_hora_atendimento, $tipo_atendimento, $observacoes);
 
     if ($stmt->execute()) {
-        header("Location: dashboard.html?msg=AgendamentoCriado");
+        header("Location: dashboard.php?msg=AgendamentoCriado");
         exit();
     } else {
         echo "Erro ao agendar atendimento: " . $stmt->error;
