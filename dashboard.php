@@ -1,106 +1,120 @@
-<!-- Criei essa página com o intuito de ser a área do monitor. Provavelmente irá substituir a pág admin.html
- ! Feito com base no design do Figma. -->
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Átrio - Administração e Formulários</title>
+    <title>Átrio - Dashboard PAS</title>
     <link rel="stylesheet" href="assets/css/style_interno.css">
     <link rel="stylesheet" href="slide-bar/ESTILO.css">
-
-    <!-- Fontes personalizadas -->
+    
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <!-- Ícones -->
     <script src="https://kit.fontawesome.com/6105ef985f.js" crossorigin="anonymous"></script>
 </head>
 <body id="app">
-        <form action="includes/dashboard.php" method="post"></form>
 
-       
-     <?php include 'slide-bar/sidebar.html'; ?>
-     
+<?php 
+include 'slide-bar/sidebar.html'; 
+$pacientes = include 'includes/paciente-dia.php';
+
+// Paciente selecionado
+$pacienteSelecionado = null;
+if (isset($_GET['paciente_id'])) {
+    $id = intval($_GET['paciente_id']);
+    $pacienteSelecionado = buscarPacientePorId($id);
+}
+?>
+
 <div class="page-content">
-
     <main class="main">
         <div class="header">
             <h2>Pacientes do dia</h2>
-            <form action="includes/lista.php" method="get">
-                <input type="text" class="input busca">
-                <button id="btn-busca" class=" button fa-solid fa-magnifying-glass"></button> <!-- TODO: Adicionar o bendito ícone + funcionalidade do botão -->
+            <form action="#" method="get" class="busca-form">
+                <input type="text" class="input busca" placeholder="Buscar paciente...">
+                <button class="button fa-solid fa-magnifying-glass"></button>
             </form>
         </div>
-        <nav id="filtro"> <!-- TODO: Add funcionalidade dos filtros -->
+
+        <nav id="filtro">
             <p>Filtrar:</p>
-            <input type="date" placeholder="Chegada" class="input">
-            <input type="number" placeholder="Idade" class="input">
+            <input type="date" class="input">
+            <input type="number" class="input" placeholder="Idade">
             <select name="ordenacao" id="ordem" class="input">
-                <option value="">Ordem alfabética</option> <!-- TODO: Adicionar valor -->
+                <option value="">Ordem alfabética</option>
                 <option value="">Mais recente</option>
                 <option value="">Mais antigo</option>
             </select>
         </nav>
 
-        <?php 
-$pacientes = include 'includes/dashboard.php';
-?>
+        <!-- Lista de pacientes -->
+        <section class="lista-pac" id="pac-dia">
+    <?php if (empty($pacientes)) { ?>
+        <p>Nenhum paciente cadastrado 😴</p>
+    <?php } else { 
+        foreach ($pacientes as $p) { 
 
-<section class="lista-pac" id="pac-dia">
-
-<?php if (empty($pacientes)) { ?>
-    <p>Nenhum paciente hoje 😴</p>
-<?php } else { ?>
-
-    <?php foreach ($pacientes as $p) { ?>
-    <a href="aluno-exemplo.html">
-        <div class="card paciente">
-            <img 
-                src="<?= $p['foto'] ?>" 
-                alt="Foto do paciente"
-                class="pac-icon">
-            <div>
-                <h3><?= $p['nome'] ?></h3>
-                <p><?= $p['descricao'] ?></p>
-                <p><strong>Idade: <?= $p['idade'] ?></strong></p>
-                <h4>Pendente : <?= $p['status_relatorio'] ?></h4>
+            // Calcula a idade a partir de data_nascimento
+            if (!empty($p['data_nascimento'])) {
+                $nascimento = new DateTime($p['data_nascimento']);
+                $hoje = new DateTime();
+                $idade = $hoje->diff($nascimento)->y;
+            } else {
+                $idade = 'Não informado';
+            }
+    ?>
+        <a href="PASS.php?id_paciente=<?= $p['id_paciente'] ?>">
+            <div class="card paciente">
+                <img src="<?= $p['foto'] ?? 'https://i.pinimg.com/736x/a4/d8/28/a4d8289d97adac030bab9a4e7101bb5b.jpg' ?>" 
+                     alt="Foto do paciente" class="pac-icon">
+                <div>
+                    <h3><?= $p['nome'] ?></h3>
+                    <p>Idade: <?= $idade ?></p>
+                    <h4>Pendente: <?= $p['tem_pas'] ? 'Não' : 'Sim' ?></h4>
+                    <p>Última PAS: <?= $p['ultima_pas'] ?? 'Nenhuma' ?></p>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
     <?php } ?>
-
-<?php } ?>
-
+    <?php } ?>
 </section>
 
-       
-    </main>
-    <section id="calend">
-            <div>
-                <h3>Nome Psicologo</h3>
-                <p>RA: 515.870.232.187</p>
-            </div>
-            <!-- TODO: Adicionar um calendário e fazer dele funcional. -->
-            <div id="tasks">
-                <h3><i class="fa-solid fa-list"></i> Pendências</h3>
-                <form action="">
-                    <input type="checkbox" name="" id="pend1">
-                    <label for="pend1">Exemplo de afazer</label> <br>
-                    <input type="checkbox" name="" id="pend2">
-                    <label for="pend2">Exemplo de afazer</label> <br>
-                    <input type="checkbox" name="" id="pend3">
-                    <label for="pend3">Exemplo de afazer</label> <br>
-                    <button disabled="disabled" class="button" id="btn-add-task"><i class="fa-solid fa-plus"></i></button>
-                </form>
-            </div>
-        </section>
+        <!-- Ficha do paciente selecionado -->
+        <?php if ($pacienteSelecionado) { ?>
+            <section class="ficha-paciente">
+                <h2><?= $pacienteSelecionado['nome'] ?> - PAS</h2>
+                <form action="includes/salvar_pas.php" method="post">
+                    <input type="hidden" name="id_paciente" value="<?= $pacienteSelecionado['id'] ?>">
 
+                    <label>Queixa Principal</label>
+                    <textarea name="queixa_principal"><?= $pacienteSelecionado['ultimaPAS']['queixa_principal'] ?? '' ?></textarea>
+
+                    <label>Descrição da Sessão</label>
+                    <textarea name="descricao_sessao"><?= $pacienteSelecionado['ultimaPAS']['descricao_sessao'] ?? '' ?></textarea>
+
+                    <label>Análise da Sessão</label>
+                    <textarea name="analise_sessao"><?= $pacienteSelecionado['ultimaPAS']['analise_sessao'] ?? '' ?></textarea>
+
+                    <label>Observações</label>
+                    <textarea name="observacao_pas"><?= $pacienteSelecionado['ultimaPAS']['observacao_pas'] ?? '' ?></textarea>
+
+                    <label>Laboterapia / Espiritualidade</label>
+                    <textarea name="laboterapia_espiritualidade"><?= $pacienteSelecionado['ultimaPAS']['laboterapia_espiritualidade'] ?? '' ?></textarea>
+
+                    <label>Evolução / Vínculo Familiar</label>
+                    <textarea name="evolucao_vinculo_familiar"><?= $pacienteSelecionado['ultimaPAS']['evolucao_vinculo_familiar'] ?? '' ?></textarea>
+
+                    <button type="submit">Salvar PAS</button>
+                </form>
+            </section>
+        <?php } ?>
+
+    </main>
 </div>
 
-     <script src="slide-bar/script.js"></script>
-
+<script src="slide-bar/script.js"></script>
 </body>
 </html>

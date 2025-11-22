@@ -19,9 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
             // Salva usuário na sessão
-            $_SESSION['usuario_id'] = $user['usuario_id'];
+$_SESSION['usuario_id'] = $user['id_profissional']; // pega o id correto do profissional
             $_SESSION['nome'] = $user['nome'];
-            $_SESSION['perfil'] = $user['perfil'];
+            $_SESSION['perfil'] =  $user['cargo'];
 
             header("Location: ../dashboard.php");
             exit;
